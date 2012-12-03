@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Space Scout</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	
+	<div id="container">
+		<header>
+			<h1><%= link_to "Space Scout", root_url %></h1>
+			<nav>
+				<ul>
+					<% if session[:user_id] %>
+						<li><%= link_to "View My Profile", profile_url %></li>
+						<li><%= link_to "Sign Out", signout_url %></li>
+					<% else %>
+						<li><%= link_to "Join Us", new_user_url %></li>
+						<li><%= link_to "Sign In", signin_url %></li>
+					<% end %>
+				</ul>
+			</nav>
+			<p>
+			  <% if session[:user_id] %>
+			    <% u = User.find_by_id(session[:user_id]) %>
+			    Hello, <%= u.name %>
+			 <% end %>
+			</p>
+		</header>
+
+		<div id="content">
+			<%= yield %>
+		</div>
+		
+		<footer>
+			&copy;2012 Space Scout.  Follow us on Twitter!
+		</footer>
+	</div>
+</body>
+</html>

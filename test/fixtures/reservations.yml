@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date: MyString
+  user_id: MyString
+  space_id: MyString
+
+two:
+  date: MyString
+  user_id: MyString
+  space_id: MyString

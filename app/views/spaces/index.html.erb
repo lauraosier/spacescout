@@ -1,0 +1,33 @@
+<%= notice %>
+
+<h1>Listing spaces</h1>
+
+<div id="search">
+  <%= form_tag spaces_url, method: :get do %>
+	<label for="keyword">Search:</label><input type="text" name="keyword" placeholder="Enter Zip Code" size="14">
+  <%= submit_tag 'Search' %>
+  <% end %>
+</div>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Hours</th>
+    <th>Amenities</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @spaces.each do |space| %>
+  <tr>
+    <td><%= space.name %></td>
+    <td><%= space.location %></td>
+    <td><%= space.hours %></td>
+    <td><%= space.amenities %></td>
+    <td><%= space.description %></td>
+  </tr>
+<% end %>
+</table>
